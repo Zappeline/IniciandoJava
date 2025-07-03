@@ -1,8 +1,23 @@
 public class App {
-    public static void main(String[] args) {
-        Listarcontatos lista = new Listarcontatos("Lucas", "999999999");
-        System.out.println("O nome é: " + lista.getNome());
+    public static void main(String[] args) throws Exception {
+        SemaforoVeicular A = new SemaforoVeicular("Vermelho", "A");
+        SemaforoVeicular B = new SemaforoVeicular("Vermelho", "B");
 
-        Listarcontatos.testar_metodo();
+        while (true) {
+            A.esperar(4);
+            B.mudarCor(); //Verde
+            A.status();
+            B.esperar(3);
+            B.mudarCor(); //Amarelo
+            A.status();
+            B.esperar(1);
+            B.mudarCor(); //Vermelho
+            B.esperar(4);
+            A.mudarCor(); //verde
+            A.esperar(3);
+            A.mudarCor(); //amarelo
+            A.esperar(1);
+            A.mudarCor(); //vermelho
+        }
     }
 }
